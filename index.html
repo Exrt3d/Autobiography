@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Memoir | Scrapbook Edition</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Auto Bio</div>
+        <ul class="nav-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#age-progression">Album</a></li>
+            <li><a href="#family">Family</a></li>
+            <li><a href="#friends">Friends</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero section-dark reveal">
+        <div class="container">
+            <span class="section-label" style="color: var(--paper-light)">ESTABLISHED 2003</span>
+            <h1>Autobiography</h1>
+            <div class="hero-line"></div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about-section section-light reveal">
+        <div class="container">
+            <div class="paper-note">
+                <div class="about-main-image polaroid-click" onclick="openLightbox(this.querySelector('img').src)">
+                    <div class="tape-corner"></div>
+                    <div class="photo-container">
+                        <img src="images/profile.jpg" alt="Profile" onerror="this.src='https://via.placeholder.com/400x400/e0d8c3/5d5444?text=YOUR+PHOTO'">
+                    </div>
+                </div>
+                <div class="section-label" style="color: var(--accent-red)">// SUBJECT INFORMATION</div>
+                <h2>A Study of Time</h2>
+                <div class="text-block">
+                    <p>I am Ethan Daniel Monterola. This is a curated collection of memories, family and friends that i've made along my life journey. I really mostly into Hardware Computer because I really how they work and perform on gaming and production work so that's why i chose IT for my course. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Age Progression -->
+    <section id="age-progression" class="age-section section-dark reveal">
+        <div class="container">
+            <div class="section-label" style="color: var(--paper-light)">FILM ROLL // 2003-2025</div>
+            <h2 class="light-text">Chronology</h2>
+        </div>
+        <div class="horizontal-scroll">
+            <script>
+                const startYear = 2003; 
+                for (let i = 0; i <= 22; i++) {
+                    let year = startYear + i;
+                    let rotation = (i % 2 === 0) ? '1.5deg' : '-1.5deg';
+                    document.write(`
+                        <div class="age-card" style="--rotation: ${rotation}">
+                            <div class="polaroid polaroid-click" onclick="openLightbox(this.querySelector('img').src)">
+                                <div class="tape"></div>
+                                <div class="image-frame">
+                                    <img src="images/age${i}.jpg" alt="Age ${i}" onerror="this.src='https://via.placeholder.com/400x550/e0d8c3/5d5444?text=AGE+${i}'">
+                                </div>
+                                <div class="age-label">
+                                    <span class="age-number">${i}</span>
+                                    <span class="year-text">${year}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                }
+            </script>
+        </div>
+    </section>
+
+    <!-- Family Section (Cousins Removed as requested) -->
+    <section id="family" class="people-section section-light reveal">
+        <div class="container">
+            <div class="section-label" style="color: var(--accent-red)">THE FAMILY TREE</div>
+            <h2 style="color: var(--ink)">The Monterola</h2>
+            <div class="people-grid">
+                <script>
+                    const familyMembers = [
+                        { role: "Mother", name: "Stephanie May Monterola" },
+                        { role: "Father", name: "Danilo Lanuang Jr." },
+                        { role: "Brother", name: "Raynier Daniel Monterola" },
+                        { role: "Grandmother", name: "Adoracion Monterola" },
+                        { role: "Aunt", name: "Sarah Kay Monterola" },
+                        { role: "Aunt", name: "Joy Posas" },
+                        { role: "Uncle", name: "Ephraim Robert Monterola" },
+                        { role: "Cousin", name: "Benjo Monterola" },
+                        { role: "Cousin", name: "Kenneth Clyde Monterola" },
+                        { role: "Cousin", name: "Princess Zandara Monterola" },
+                        { role: "Cousin", name: "Solana Winters Monterola" }
+                    ];
+
+                    familyMembers.forEach((member, i) => {
+                        document.write(`
+                            <div class="person-card">
+                                <div class="polaroid-thumb polaroid-click" onclick="openLightbox(this.querySelector('img').src)">
+                                    <div class="thumb-photo-area">
+                                        <img src="images/family${i+1}.jpg" onerror="this.src='https://via.placeholder.com/300x300/e0d8c3/5d5444?text=KIN'">
+                                    </div>
+                                    <h3 class="editable-name">${member.name}</h3>
+                                    <p class="role-label">${member.role}</p>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Friends Section -->
+    <section id="friends" class="people-section section-dark reveal">
+        <div class="container">
+            <div class="section-label" style="color: var(--ink)">COLLECTED MOMENTS</div>
+            <h2 style="color: var(--ink)">Friends</h2>
+            <div class="people-grid">
+                <script>
+                    const friendNames = [
+                        "Zack Xaiver Refrea", "Joshua Paul Mataverde", "Maui Endiape", "Gabrielle Prudente", "Dominic Juarez",
+                        "Vince Reyes", "Andreine Tendencia", "Nomer Aguas", "Richard Catindig", "Jomar Eyas",
+                        "Joshua Angelo Berdon", "Joshua Angeles", "Laraine Rodrigez", "Irene Caguya", "Aj Escobin"
+                    ];
+
+                    friendNames.forEach((name, i) => {
+                        document.write(`
+                            <div class="person-card">
+                                <div class="polaroid-thumb polaroid-click" onclick="openLightbox(this.querySelector('img').src)">
+                                    <div class="thumb-photo-area">
+                                        <img src="images/friend${i+1}.jpg" onerror="this.src='https://via.placeholder.com/300x300/e0d8c3/5d5444?text=FRIEND'">
+                                    </div>
+                                    <h3 class="editable-name" style="color: var(--ink)">${name}</h3>
+                                    <p class="role-label" style="color: var(--ink); opacity: 0.8;">Close Friend</p>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section-dark reveal">
+        <p>&copy; 2024 RECORDS OF [YOUR NAME]</p>
+    </footer>
+
+    <!-- LIGHTBOX (FULL RESOLUTION PREVIEW) -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Full Preview">
+        </div>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
